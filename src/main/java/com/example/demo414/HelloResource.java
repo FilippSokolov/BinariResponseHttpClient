@@ -26,7 +26,7 @@ public class HelloResource {
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
     public Response getTextFile() {
 
-        InputStream in = this.getClass().getResourceAsStream(TEXTFILE_PATH);
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream(TEXTFILE_PATH);
         Response.ResponseBuilder response = Response.ok(in, MediaType.APPLICATION_OCTET_STREAM);
         response.header("Content-Disposition", "attachment; filename=\"" + TEXTFILE_PATH + "\"");
         return response.build();
@@ -38,7 +38,7 @@ public class HelloResource {
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
     public Response getImageFile() {
 
-        InputStream in = this.getClass().getResourceAsStream(IMAGEFILE_PATH);
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream(IMAGEFILE_PATH);
 
         Response.ResponseBuilder response = Response.ok(in, MediaType.APPLICATION_OCTET_STREAM);
         response.header("Content-Disposition",
@@ -53,7 +53,7 @@ public class HelloResource {
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
     public Response getPDFFile() {
 
-        InputStream in = this.getClass().getResourceAsStream(PDFFILE_PATH);
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream(PDFFILE_PATH);
 
         Response.ResponseBuilder response = Response.ok(in, MediaType.APPLICATION_OCTET_STREAM);
         response.header("Content-Disposition",
@@ -68,7 +68,7 @@ public class HelloResource {
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
     public Response getExcelFile() {
 
-        InputStream in = this.getClass().getResourceAsStream(EXCELFILE_PATH);
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream(EXCELFILE_PATH);
 
         Response.ResponseBuilder response = Response.ok(in, MediaType.APPLICATION_OCTET_STREAM);
         response.header("Content-Disposition",
